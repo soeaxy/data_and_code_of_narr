@@ -24,7 +24,7 @@ from catboost import CatBoostClassifier
 # from pytorch_tabnet.tab_model import TabNetClassifier
 from sklearn.ensemble import RandomForestClassifier, StackingClassifier, VotingClassifier
 import shap
-from pdpbox import pdp
+# from pdpbox import pdp
 
 # Utility functions
 def plot_confusion_matrix(cm, classes, ax, title='Confusion matrix', cmap=plt.cm.Blues):
@@ -204,8 +204,8 @@ def main():
         'LGBM': LGBMClassifier(random_state=42),
         'CatBoost': CatBoostClassifier(random_state=42, verbose=0),
         'RF': RandomForestClassifier(random_state=42),
-        'Balanced LGBM': LGBMClassifier(class_weight='balanced', random_state=42),
-        'Balanced CatBoost': CatBoostClassifier(class_weights=[1, 10], random_state=42, verbose=0),
+        'Class-weighted LGBM': LGBMClassifier(class_weight='balanced', random_state=42),
+        'Class-weighted CatBoost': CatBoostClassifier(class_weights=[1, 10], random_state=42, verbose=0),
         'Balanced RF': BalancedRandomForestClassifier(random_state=42),
     }
 
